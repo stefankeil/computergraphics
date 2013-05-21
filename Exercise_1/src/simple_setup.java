@@ -45,7 +45,7 @@ public abstract class simple_setup {
 		}
 	
 	public void update(int delta){
-		rotation += 0.01f * delta;
+		rotation += 0.03f * delta;
 	}
 
 
