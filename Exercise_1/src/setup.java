@@ -3,8 +3,13 @@ import static org.lwjgl.opengl.GL11.*;
 
 import java.util.Random;
 
+import org.lwjgl.opengl.GL20;
+
 public class setup extends simple_setup {
 	Texture texture,texture2;
+	Shader boxShader= new Shader("VertexShader.glsl","FragmentShader_box.glsl");
+	Shader BackgroundShader= new Shader("VertexShader.glsl","FragmentShader_background.glsl");
+	
 
 	public static void main(String[] args) {
 		new setup().run();
@@ -33,7 +38,6 @@ public class setup extends simple_setup {
 		glEnable(GL_TEXTURE_2D);
 		texture = new Texture("/Texture/Paper0029_2_thumblarge.jpg");
 		texture2 = new Texture("/Texture/PlywoodNew0041_1_S.jpg");		
-
 	}
 
 	@Override
@@ -46,7 +50,8 @@ public class setup extends simple_setup {
 		glPushMatrix();
 		
 		glClear(GL_DEPTH_BUFFER_BIT);
-		
+		GL20.glUseProgram(BackgroundShader.id);
+
 		glBegin(GL_QUADS);
 		glColor4f(1,1,1,0.06f);
 		glTexCoord2f(0, 0);
@@ -59,6 +64,7 @@ public class setup extends simple_setup {
 		glVertex3i(100, -100, -99);
 		glEnd();
 		
+		GL20.glUseProgram(boxShader.id);
 		glTranslatef(0, 0, -80f);
 		glRotatef(rotation, 0.5f, 1f, 0.5f);
 		//glTranslatef(randomColor()*50,randomColor()*30, 0);
