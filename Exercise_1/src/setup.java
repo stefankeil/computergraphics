@@ -53,6 +53,7 @@ public class setup extends simple_setup {
 		GL20.glUseProgram(BackgroundShader.id);
 
 		glBegin(GL_QUADS);
+		glNormal3f(0,0,1);
 		glColor4f(1,1,1,0.06f);
 		glTexCoord2f(0, 0);
 		glVertex3i(-100, -100, -99);
@@ -74,6 +75,7 @@ public class setup extends simple_setup {
 		glBegin(GL_QUADS);
 		glColor3f(1,1,1);
 		// RŸckseite
+		glNormal3f(0,0,-100);
 		glTexCoord2f(0, 0);
 		glVertex3i(-10, -10, -10);
 		glTexCoord2f(1, 0);
@@ -86,6 +88,7 @@ public class setup extends simple_setup {
 		
 		// Vorderseite
 		//glColor3f(0.5f,1,1);
+		glNormal3f(0,0,100);
 		glTexCoord2f(0, 0);
 		glVertex3i(-10, -10, 10);
 		glTexCoord2f(1, 0);
@@ -98,6 +101,7 @@ public class setup extends simple_setup {
 
 		// Seite Links
 		//glColor3f(0.5f,1,1);
+		glNormal3f(-100,0,0);
 		glTexCoord2f(0, 0);
 		glVertex3i(-10, -10, -10);
 		glTexCoord2f(1, 0);
@@ -111,6 +115,7 @@ public class setup extends simple_setup {
 
 		// Seite rechts
 		//glColor3f(0.5f,1,1);
+		glNormal3f(100,0,0);
 		glTexCoord2f(0, 0);
 		glVertex3i(10, -10, -10);
 		glTexCoord2f(1, 0);
@@ -123,6 +128,7 @@ public class setup extends simple_setup {
 
 		// oben
 		//glColor3f(0.5f,1,1);
+		glNormal3f(0,100,0);
 		glTexCoord2f(0, 0);
 		glVertex3i(-10, 10, 10);
 		glTexCoord2f(1, 0);
@@ -135,6 +141,7 @@ public class setup extends simple_setup {
 
 		// unten
 		//glColor3f(0.5f,1,1);
+		glNormal3f(0,-100,0);
 		glTexCoord2f(0, 0);
 		glVertex3i(-10, -10, 10);
 		glTexCoord2f(1, 0);
